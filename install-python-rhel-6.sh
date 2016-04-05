@@ -1,6 +1,8 @@
 # Usage: ./install-python-rhel-6.sh 3.5.1 $PWD
 # will install Python 3.5.1 in the current directory/python-3.5.1 directory
 
+# This script is inspired from http://unix.stackexchange.com/q/77293/74826
+
 VERSION=$1
 MINOR_VERSION=$(echo $VERSION| cut -d'.' -f 1,2)
 DESTDIR=$2/python-$VERSION

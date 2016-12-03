@@ -24,8 +24,8 @@ make
 make altinstall
 
 # Configure the dynamically loaded libraries location
-echo $DESTDIR/lib | sudo tee /etc/ld.so.conf.d/python-${VERSION}.conf
-sudo ldconfig
+echo $DESTDIR/lib | sudo tee /etc/ld.so.conf.d/python-${VERSION}.conf > /dev/null 2>&1
+sudo ldconfig > /dev/null 2>&1
 
 echo "export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$DESTDIR/lib" >> ~/.bashrc
 echo "export PATH=$DESTDIR/bin:$PATH" >> ~/.bashrc

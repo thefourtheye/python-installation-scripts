@@ -27,6 +27,10 @@ make altinstall
 echo $DESTDIR/lib | sudo tee /etc/ld.so.conf.d/python-${VERSION}.conf
 sudo ldconfig
 
+echo "export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$DESTDIR/lib" >> ~/.bashrc
+echo "export PATH=$DESTDIR/bin:$PATH" >> ~/.bashrc
+source ~/.bashrc
+
 # Install easy_install
 wget --no-check-certificate https://bootstrap.pypa.io/ez_setup.py
 $DESTDIR/bin/python$MINOR_VERSION ez_setup.py

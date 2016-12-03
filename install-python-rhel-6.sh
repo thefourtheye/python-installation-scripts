@@ -12,7 +12,7 @@ sudo yum groupinstall "development tools" -y
 sudo yum install readline-devel openssl-devel gmp-devel ncurses-devel gdbm-devel zlib-devel expat-devel libGL-devel tk tix gcc-c++ libX11-devel glibc-devel bzip2 tar tcl-devel tk-devel pkgconfig tix-devel bzip2-devel sqlite-devel autoconf db4-devel libffi-devel valgrind-devel -y
 
 # Download Python source code
-wget http://python.org/ftp/python/${VERSION}/Python-${VERSION}.tgz
+wget --no-check-certificate http://python.org/ftp/python/${VERSION}/Python-${VERSION}.tgz
 
 # Unpack it
 tar xvfz Python-${VERSION}.tgz
@@ -28,7 +28,7 @@ echo $DESTDIR/lib | sudo tee /etc/ld.so.conf.d/python-${VERSION}.conf
 sudo ldconfig
 
 # Install easy_install
-wget https://bootstrap.pypa.io/ez_setup.py
+wget --no-check-certificate https://bootstrap.pypa.io/ez_setup.py
 $DESTDIR/bin/python$MINOR_VERSION ez_setup.py
 
 # Clean up
